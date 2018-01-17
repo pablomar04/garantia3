@@ -15,6 +15,14 @@ class CreateOrdensTable extends Migration
     {
         Schema::create('ordens', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('numero');
+            $table->string('sucursal');
+            $table->string('chasis', 17);
+            $table->date('apertura');
+            $table->date('cierre');
+            $table->date('retiro');
+            $table->string('estado');
+            $table->text('observaciones');
             $table->timestamps();
         });
     }
