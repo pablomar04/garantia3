@@ -12,5 +12,6 @@
 */
 
 Route::resource('/','OrdenController');
+Route::resource('usuario','UsuarioController');
 
 

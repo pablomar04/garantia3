@@ -2,10 +2,9 @@
 
 namespace Garantia3\Http\Controllers;
 
-use Garantia3\Orden;
 use Illuminate\Http\Request;
 
-class OrdenController extends Controller
+class UsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,7 @@ class OrdenController extends Controller
      */
     public function index()
     {
-        return view('login');
-        //$ordenes = Orden::all();
-        //return view('ordenes_view')->with('ordenes',$ordenes);
+        //
     }
 
     /**
@@ -26,7 +23,7 @@ class OrdenController extends Controller
      */
     public function create()
     {
-        //
+        return view('usuario.create');
     }
 
     /**
@@ -37,16 +34,21 @@ class OrdenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        \Garantia3\User::create([
+            'name'=>$request['name'],
+            'email'=>$request['email'],
+            'password'=>bcrypt($request['password']),
+            ]);
+        return "Usuario registrado";
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \Garantia3\Orden  $orden
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Orden $orden)
+    public function show($id)
     {
         //
     }
@@ -54,10 +56,10 @@ class OrdenController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \Garantia3\Orden  $orden
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Orden $orden)
+    public function edit($id)
     {
         //
     }
@@ -66,10 +68,10 @@ class OrdenController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Garantia3\Orden  $orden
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Orden $orden)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,10 +79,10 @@ class OrdenController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \Garantia3\Orden  $orden
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Orden $orden)
+    public function destroy($id)
     {
         //
     }
