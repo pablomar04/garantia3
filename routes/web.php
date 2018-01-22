@@ -11,7 +11,8 @@
 |
 */
 
-Route::resource('/','OrdenController');
+Route::get('/','FrontController@index');
+Route::get('/admin','AdminController@index');
 Route::resource('usuario','UsuarioController');
 
 

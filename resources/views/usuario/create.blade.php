@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+	<h1>Crear Usuario</h1>
 	{!!Form::open(['route'=>'usuario.store','method'=>'POST'])!!}
 		<div class="from-group">
 			{!!Form::label('Nombre')!!}
