@@ -3,6 +3,9 @@
 namespace Garantia3\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Garantia3\User;
+use Session;
+use Redirect;
 
 class UsuarioController extends Controller
 {
@@ -13,7 +16,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $users = \Garantia3\User::All();
+        $users = User::All();
         return view('usuario.index',compact('users'));
     }
 
@@ -35,12 +38,12 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        \Garantia3\User::create([
+            User::create([
             'name'=>$request['name'],
             'email'=>$request['email'],
-            'password'=>bcrypt($request['password']),
+            'password'=>$request['password'],
             ]);
-        return redirect('/usuario')->with('message','store');
+        return redirect('/usuario')->with('message','Usuario registrado correctamente');
     }
 
     /**
@@ -62,7 +65,8 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('usuario.edit',['user'=>$user]);
     }
 
     /**
@@ -74,7 +78,14 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->setPassword($request['password']);
+        $user->save();
+        Session::flash('message','Usuario editado correctamente');
+        return Redirect::to('/usuario');
+
     }
 
     /**
@@ -85,6 +96,8 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        Session::flash('message','Usuario elimado correctamente');
+        return Redirect::to('/usuario');        
     }
 }

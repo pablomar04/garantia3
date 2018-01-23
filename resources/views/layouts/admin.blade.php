@@ -32,26 +32,30 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuario <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/usuario/create">Nuevo usuario</a></li>
-            <li><a href="/usuario">Mostrar usuarios</a></li>
-            <li><a href="#">Modificar usuario</a></li>
+            <li><a href="{{URL::to('/usuario/create')}}">Nuevo usuario</a></li>
+            <li><a href="{{URL::to('/usuario')}}">Mostrar usuarios</a></li>            
           </ul>
         </li>
 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Orden <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Nueva Orden</a></li>
+            <li><a href="#">Nueva orden</a></li>
             <li><a href="#">Mostrar ordenes</a></li>
-            <li><a href="#">Modificar orden</a></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reclamos <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reclamo<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Nuevo Reclamo</a></li>
             <li><a href="#">Mostrar reclamos</a></li>
-            <li><a href="#">Modificar reclamo</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lote<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Nuevo lote</a></li>
+            <li><a href="#">Mostrar lotes</a></li>
           </ul>
         </li>
         <li><a href="#">Desvío</a></li>
@@ -59,6 +63,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Consultas</a></li>
         <li><a href="#">Garantia</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
