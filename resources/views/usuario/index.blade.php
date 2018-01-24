@@ -8,6 +8,7 @@
   <strong>{{Session::get('message')}}</strong> 
 </div>
 @endif
+	<h2>Lista de usuarios</h2>
 	<table class="table">
 		<thead>
 			<tr>

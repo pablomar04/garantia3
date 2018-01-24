@@ -14,9 +14,9 @@ class OrdenController extends Controller
      */
     public function index()
     {
-        return view('login');
-        //$ordenes = Orden::all();
-        //return view('ordenes_view')->with('ordenes',$ordenes);
+        
+        $ordens = Orden::paginate(10);
+        return view('orden.index',compact('ordens'));
     }
 
     /**

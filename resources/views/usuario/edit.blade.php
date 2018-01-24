@@ -1,6 +1,7 @@
 @extends ('layouts.admin')
 @section('content')
-<h1>Editar un usuario</h1>
+@include('alerts.request')
+<h2>Editar un usuario</h2>
 	{!!Form::model($user,['route' => ['usuario.update', $user->id], 'method' => 'PUT'])!!}
 		@include('usuario.forms.usr')	
 	<br>
@@ -8,7 +9,7 @@
 	{!!Form::close()!!}	
 	<br>
 	{!!Form::open(['route'=>['usuario.destroy',$user->id],'method'=>'DELETE'])!!}
-	{!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
-	
+	{!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}	
 	{!!Form::close()!!}	
+
 @stop

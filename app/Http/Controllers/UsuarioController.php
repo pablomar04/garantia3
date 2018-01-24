@@ -3,6 +3,9 @@
 namespace Garantia3\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Garantia3\Http\Requests\UserCreateRequest;
+use Garantia3\Http\Requests\UserUpdateRequest;
+use Illuminate\Support\Facades\Hash;
 use Garantia3\User;
 use Session;
 use Redirect;
@@ -36,14 +39,14 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserCreateRequest $request)
     {
             User::create([
             'name'=>$request['name'],
             'email'=>$request['email'],
-            'password'=>$request['password'],
+            'password'=>Hash::make($request['password']),
             ]);
-        return redirect('/usuario')->with('message','Usuario registrado correctamente');
+            return redirect('/usuario')->with('message','Usuario registrado correctamente');
     }
 
     /**
@@ -76,7 +79,7 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
         $user = User::find($id);
         $user->name = $request['name'];

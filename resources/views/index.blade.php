@@ -1,27 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Garantías Admin</title>
+    {!!Html::style('css/bootstrap.min.css')!!}
+    {!!Html::style('css/font-awesome.min.css')!!}
+    {!!Html::style('css/signin.css')!!}
+</head>
 
-    <title>Garantia</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/signin.css" rel="stylesheet">
-  </head>
-
-  <body>
-
-    <div class="container">
+<body>
+<div class="container">
 
       <form class="form-signin">
-        <h2 class="form-signin-heading">Garantías - Acceder</h2>
+        <h2 class="form-signin-heading">Garantías Admin</h2>
          <label for="inputEmail" class="sr-only">Dirección de correo</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Dirección de correo" required autofocus>
         <label for="inputPassword" class="sr-only">Contraseña</label>
@@ -35,5 +30,10 @@
       </form>
 
     </div> <!-- /container -->
-  </body>
+
+    {!!Html::script('js/jquery-3.2.1.min.js')!!}
+    {!!Html::script('js/bootstrap.min.js')!!}
+
+</body>
+
 </html>

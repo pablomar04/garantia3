@@ -40,8 +40,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Orden <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Nueva orden</a></li>
-            <li><a href="#">Mostrar ordenes</a></li>
+            <li><a href="{{URL::to('/orden/create')}}">Nueva orden</a></li>
+            <li><a href="{{URL::to('/orden')}}">Mostrar ordenes</a></li>
           </ul>
         </li>
         <li class="dropdown">

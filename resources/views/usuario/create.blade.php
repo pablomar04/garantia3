@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
-	<h1>Crear Usuario</h1>
+@include('alerts.request')
+	<h2>Crear nuevo usuario</h2>
 	{!!Form::open(['route'=>'usuario.store','method'=>'POST'])!!}
 		@include('usuario.forms.usr')
 	<br>	
