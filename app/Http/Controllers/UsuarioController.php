@@ -45,7 +45,7 @@ class UsuarioController extends Controller
             'name'=>$request['name'],
             'email'=>$request['email'],
             'password'=>Hash::make($request['password']),
-            ]);
+            ]); //User::create($request->all()); 
             return redirect('/usuario')->with('message','Usuario registrado correctamente');
     }
 
@@ -99,7 +99,8 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        User::destroy($id);
+        $user = User::find($id);
+        $user->delete();
         Session::flash('message','Usuario elimado correctamente');
         return Redirect::to('/usuario');        
     }

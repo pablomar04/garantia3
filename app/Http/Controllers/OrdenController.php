@@ -82,6 +82,9 @@ class OrdenController extends Controller
      */
     public function destroy(Orden $orden)
     {
-        //
+        $orden = Orden::find($id);
+        $user->delete();
+        Session::flash('message','Orden eliminada correctamente');
+        return Redirect::to('/orden'); 
     }
 }

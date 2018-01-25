@@ -1,13 +1,7 @@
 @extends('layouts.admin')
-<?php $message=Session::get('message');?>
-
+@include('alerts.success')
 @section('content')
-@if (Session::has('message'))
-<div class="alert alert-success alert-dismissable">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <strong>{{Session::get('message')}}</strong> 
-</div>
-@endif
+
 	<h2>Lista de usuarios</h2>
 	<table class="table">
 		<thead>
