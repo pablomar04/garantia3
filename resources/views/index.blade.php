@@ -14,7 +14,8 @@
 
 <body>
 <div class="container">
-
+     
+      
       <form class="form-signin">
         <h2 class="form-signin-heading">Garantías Admin</h2>
          <label for="inputEmail" class="sr-only">Dirección de correo</label>

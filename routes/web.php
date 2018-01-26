@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/','FrontController@index');
-Route::get('/admin','FrontController@admin');
-Route::resource('usuario','UsuarioController');
+//Route::get('/','FrontController@index');
+//Route::get('/admin','FrontController@admin');
+//Route::resource('usuario','UsuarioController');
 Route::resource('orden','OrdenController');
 
 
+
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');

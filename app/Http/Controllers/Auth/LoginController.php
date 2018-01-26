@@ -5,6 +5,8 @@ namespace Garantia3\Http\Controllers\Auth;
 use Garantia3\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+
+
 class LoginController extends Controller
 {
     /*
@@ -19,6 +21,7 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+
 
     /**
      * Where to redirect users after login.
@@ -36,4 +39,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
 }
