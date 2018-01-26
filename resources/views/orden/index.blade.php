@@ -35,8 +35,8 @@
 							<td>{{$orden->cierre}}</td>
 							<td>{{$orden->retiro}}</td>
 							<td>{{$orden->estado}}</td>
-							<td>{{link_to_route('orden.show', $title = "Ver", $parameters = $orden->id, $attributes = ['class'=>'btn btn-info'])}}
-								{{link_to_route('orden.edit', $title = "Editar", $parameters = $orden->id, $attributes = ['class'=>'btn btn-warning'])}}
+							<td>{{link_to_route('orden.show', $title = "Ver", $parameters = $orden->id, $attributes = ['class'=>'btn btn-primary'])}}
+								{{link_to_route('orden.edit', $title = "Editar", $parameters = $orden->id, $attributes = ['class'=>'btn btn-primary'])}}
 							</td>
 							
 						</tr>
