@@ -1,10 +1,11 @@
 		<div class="from-group">
 			{!!Form::label('Orden')!!}<br>
-			{!!Form::number('name', '000000')!!}			
+			{!!Form::number('orden')!!}			
 		</div>
 		<div class="from-group">
 			{!!Form::label('Sucursal')!!}<br>
-			{!!Form::text('sucursal',null,['class'=>'form-control','placeholder'=>'Ingrese sucursal'])!!}			
+			<!--{!!Form::text('sucursal',null,['class'=>'form-control','placeholder'=>'Ingrese sucursal'])!!}	-->
+			{!!Form::select('sucursal', ['BALCARCE' => 'BALCARCE', 'TANDIL' => 'TANDIL', 'COLON' => 'COLON', 'SALTA'=>'SALTA'])!!}
 		</div>	
 		<div class="from-group">
 			{!!Form::label('Chasis')!!}
@@ -19,8 +20,8 @@
 			{!!Form::date('cierre', \Carbon\Carbon::now())!!}
 		</div>
 		<div class="from-group">
-			{!!Form::label('Fecha cierre')!!}<br>
-			{!!Form::date('cierre', \Carbon\Carbon::now())!!}
+			{!!Form::label('Fecha retiro')!!}<br>
+			{!!Form::date('retiro', \Carbon\Carbon::now())!!}
 		</div>
 		<div class="from-group">
 			{!!Form::label('Observacion')!!}

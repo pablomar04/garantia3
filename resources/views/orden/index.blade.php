@@ -19,7 +19,7 @@
 							<th>Sucursal</th>
 							<th>Chasis</th>
 							<th>Apertura</th>
-							<th>Cierre</th>
+							
 							<th>Retiro</th>
 							<th>Estado</th>
 							<th>Operación</th>				
@@ -27,12 +27,15 @@
 					</thead>
 					<tbody>
 						@foreach ($ordens as $orden)
-						<tr>
+						@if ($orden->estado == "ENVIADA")
+						<tr class="bg-warning">
+						@else
+						<tr class="bg-success">
+						@endif							
 							<td>{{$orden->numero}}</td>
 							<td>{{$orden->sucursal}}</td>
 							<td>{{$orden->chasis}}</td>
 							<td>{{$orden->apertura}}</td>				
-							<td>{{$orden->cierre}}</td>
 							<td>{{$orden->retiro}}</td>
 							<td>{{$orden->estado}}</td>
 							<td>{{link_to_route('orden.show', $title = "Ver", $parameters = $orden->id, $attributes = ['class'=>'btn btn-primary'])}}
