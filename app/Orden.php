@@ -13,5 +13,7 @@ class Orden extends Model
     protected $table = "ordens";
 
     protected $dates = ['deleted_at'];
+
+    protected $fillable = ['numero','sucursal','chasis','apertura','cierre','retiro','estado','observaciones'];
     
 }

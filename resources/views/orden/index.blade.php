@@ -1,13 +1,10 @@
 @extends('layouts.app')
 @section('content')
-@if (Session::has('message'))
-<div class="alert alert-success alert-dismissable">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <strong>{{Session::get('message')}}</strong> 
-</div>
-@endif
+
 	<div class="row">
         <div class="col-md-8 col-md-offset-2">
+        	@include('alerts.success')
+        	@include('alerts.request')
             <div class="panel panel-default">
                 <div class="panel-heading"><h2>Lista de Ordenes</h2></div>
 

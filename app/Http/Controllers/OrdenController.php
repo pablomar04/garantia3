@@ -4,6 +4,10 @@ namespace Garantia3\Http\Controllers;
 
 use Garantia3\Orden;
 use Illuminate\Http\Request;
+use Garantia3\Http\Requests\OrdenCreateRequest;
+use Garantia3\Http\Requests\OrdenUpdateRequest;
+use Session;
+use Redirect;
 
 class OrdenController extends Controller
 {
@@ -20,7 +24,7 @@ class OrdenController extends Controller
     public function index()
     {
         
-        $ordens = Orden::paginate(10);
+        $ordens = Orden::orderBy('created_at', 'desc')->paginate(10);
         return view('orden.index',compact('ordens'));
     }
 
@@ -40,9 +44,21 @@ class OrdenController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OrdenCreateRequest $request)
     {
-        //
+
+            Orden::create([
+            'numero'=>$request['numero'],
+            'sucursal'=>$request['sucursal'],
+            'chasis'=>$request['chasis'],
+            'apertura'=>$request['apertura'],
+            'cierre'=>$request['cierre'],
+            'retiro'=>$request['retiro'],
+            'estado'=>$request['estado'],
+            'observaciones'=>$request['observaciones'],          
+            ]);
+            return redirect('/orden')->with('message','Orden creada correctamente');
+            
     }
 
     /**
@@ -62,9 +78,10 @@ class OrdenController extends Controller
      * @param  \Garantia3\Orden  $orden
      * @return \Illuminate\Http\Response
      */
-    public function edit(Orden $orden)
+    public function edit($id)
     {
-        //
+        $orden = Orden::find($id);
+        return view('orden.edit',['orden'=>$orden]);
     }
 
     /**
@@ -74,9 +91,13 @@ class OrdenController extends Controller
      * @param  \Garantia3\Orden  $orden
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Orden $orden)
+    public function update(OrdenUpdateRequest $request, $id)
     {
-        //
+        $orden = Orden::find($id);
+        $orden->fill($request->all());
+        $orden->save();
+        Session::flash('message','Orden editada correctamente');
+        return Redirect::to('/orden');
     }
 
     /**
