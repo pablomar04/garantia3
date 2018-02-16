@@ -11,13 +11,8 @@
 |
 */
 
-//Route::get('/','FrontController@index');
-//Route::get('/admin','FrontController@admin');
-//Route::resource('usuario','UsuarioController');
 Route::resource('orden','OrdenController');
-
-
-
+Route::get('reclamo/create/{qid}', array('as' => 'crearreclamo', 'uses' => 'ReclamoController@create'));
+Route::resource('reclamo','ReclamoController');
 Auth::routes();
-
 Route::get('/', 'HomeController@index')->name('home');

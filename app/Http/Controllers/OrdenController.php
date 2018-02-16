@@ -24,7 +24,7 @@ class OrdenController extends Controller
     public function index()
     {
         
-        $ordens = Orden::orderBy('created_at', 'desc')->paginate(10);
+        $ordens = Orden::orderBy('created_at', 'desc')->paginate(15);
         return view('orden.index',compact('ordens'));
     }
 
@@ -67,9 +67,10 @@ class OrdenController extends Controller
      * @param  \Garantia3\Orden  $orden
      * @return \Illuminate\Http\Response
      */
-    public function show(Orden $orden)
+    public function show($id)
     {
-        //
+        $orden = Orden::find($id);
+        return view('orden.show',['orden'=>$orden]);
     }
 
     /**
@@ -106,10 +107,10 @@ class OrdenController extends Controller
      * @param  \Garantia3\Orden  $orden
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Orden $orden)
+    public function destroy($id)
     {
         $orden = Orden::find($id);
-        $user->delete();
+        $orden->delete();
         Session::flash('message','Orden eliminada correctamente');
         return Redirect::to('/orden'); 
     }
